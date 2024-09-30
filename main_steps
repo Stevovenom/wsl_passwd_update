@@ -1,1 +1,40 @@
+# step_1
+<p>We will be making the use of Windows powershell in this case.</p> Open the Powershell as an Administrator, that is, run it as an administrator.
 
+# step_2
+<p>Find your WSL distribution name. This can be done by lising the installed WSL distributions by simply running the command below:- </p><br>
+<code>
+wsl -l -v
+</code><br>
+<p>This will list the distributions that you currently have, i.e:- </p><br>
+<code>
+PS C:\Windows\system32> wsl -l -v
+NAME			STATE		VERSION
+*kali-linux		Running		2
+docker-desktop		Stopped 	2
+docker-desktop-data 	Stopped		2
+PS C:\Windows\system32>
+</code><br>
+
+# step_3
+<p>Now set the default user to root by using the name of the WSL distribution that you have.<p><br>
+<code>
+wsl -d kali-linux -u root
+</code><br>
+<p>By doing this you will be able to log in as teh root user without requiring a password.</p><br>
+<strong>NOTE:</strong><br>
+<h1>Do not forget to use the name of your distribution that you are using like in my case the one that is running is "kali-linux".</h1><br>
+
+# step_4
+<p>Since you are now logged in as a root user, you can now reset the password for your user account.</p><br>
+<p>You can list all user by:-</p><br>
+<code>
+cat /etc/passwd
+</code><br>
+
+<p>And once you've gotten the username you can reset the password by running:-</p><br>
+<code>
+passwd your_username
+</code><br>
+
+<p>You will receive prompts to enter the new password and confirm the newly entered password and you will be back to using your  wsl with root previledges.
